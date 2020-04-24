@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pl">
+   
+<head>
+        <meta charset="utf-8"/>
+        
+
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+       
+        <script>
+
+            function KalVatiPodatek()
+            {
+            var cena = document.getElementById("cena").value;
+            var ilosc = document.getElementById("ilosc").value;
+            var tpodatek = document.getElementById("podatek").checked;
+            var tvat = document.getElementById("vat").checked;
+            var podatek = parseFloat(cena * 1.18) * parseFloat(ilosc);
+            var vat = parseFloat(cena * 1.23) * parseFloat(ilosc);
+            var wynik = parseFloat(cena) * parseFloat(ilosc);
+            document.getElementById("netto").innerHTML = wynik ;
+
+            
+            if(tvat == true)
+            { 
+                document.getElementById("brutto23").innerHTML = vat;
+            };
+            if(tpodatek == true)
+            {
+                document.getElementById("brutto18").innerHTML = podatek ;
+            };
+
+            }
+
+        </script>  
+ </head>
+
+ <body >
+
+    <div id="logo">Kalkulator do Podatku i Vatu</div>
+     <div>
+        Ilość: <input type="text" id="ilosc" /><br>
+        Cena: <input type="text" id="cena" /><br><br>
+     </div >
+
+     VAT <input type="checkbox" id="vat" />
+     Podatek <input type="checkbox" id="podatek" /><br>
+     Wynik Netto: <div id="netto"></div>
+     Wynik Brutto podatek: <div id="brutto18"></div>
+     Brutto VAT: <div id="brutto23"></div><br>
+     
+     <input type="submit" value="Wynik" onclick="KalVatiPodatek()"/>
+  </body>
+  
+ </html>
