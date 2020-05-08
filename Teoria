@@ -1,0 +1,25 @@
+<<html>
+
+<head>
+</head>
+
+<body>
+
+	<input type= "text" id="imie">
+	<button onClick="click()" > Kliknij. Sprawdź </button>
+	
+	  <script>
+	
+	      	function click()	
+	      	{
+          
+	      		var string1 = document.getElementById("imie + nazwisko");
+	  	    	if (string1.match (/[A-Z] + [a-z] /))
+		      		console.log("Dobrze");
+	      			else console.log("Źle");
+	      	}
+        
+    </script>
+
+</body>
+</html> 
