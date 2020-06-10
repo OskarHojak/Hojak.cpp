@@ -14,21 +14,21 @@ class Gra
 	
 	public:	
 		
-		ifstream plik1;
+	ifstream plik1;
     	ofstream plik2;
     	
     	vector<string> gameInfo;
-		string napis;
+	string napis;
 		
 		
-		Gra();
+	Gra();
         ~Gra();
-		void wprowadzPlik();
+	void wprowadzPlik();
 };
 
 Gra::Gra(){
 	
-	plik1.open("c:\\WynikJSON.txt");
+    plik1.open("c:\\WynikJSON.txt");
     plik2.open("c:\\Palindromy.txt");
     
 };
@@ -43,7 +43,7 @@ void Gra::wprowadzPlik(){
 	    while(!plik1.eof()&&i<3)
 		{
             getline(plik1, napis);
-			gameInfo.push_back(napis);i++;				
+	    gameInfo.push_back(napis);i++;				
         }
 
 };
@@ -53,8 +53,9 @@ class graFPS:public Gra
 	string tryb;				
 	
 	public:
-		void wprowadz_FPSA();
-		void wypisz_FPSA();
+	
+	void wprowadz_FPSA();
+	void wypisz_FPSA();
 };
 
 void graFPS::wprowadz_FPSA()
