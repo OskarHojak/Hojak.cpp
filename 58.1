@@ -1,0 +1,112 @@
+#include <iostream>
+#include <fstream>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+using namespace std;
+
+class temp
+{
+
+public:
+ifstream file; //plik wejsciowy
+ ofstream fileOut; //plik wynikowy do zapisu
+ char* endptr; // to jest wskaźnik na miejsce, gdzie przy konwersji z systemu czworkowego wystąpi błąd - nieużywana zmienna
+ long liczba, min; //liczba dziesietna, minimum z pliku
+ string liczba1, liczba2; //dwie liczby w systemie czworkowym wczytujemy jako "string" bo mogą być dłuższe od long long
+ 
+ void binarny()
+ {
+ 
+
+file.open("dane_systemy1.txt"); //otworz plik liczb
+ fileOut.open("wyjscie.txt"); //otworz plik do wynikow
+ bool pierwszy = true;  //do algorytmu MINIMUM - zakładamy, że pierwsza liczba jest najmniejsza z dotychczas przeczytanych
+ 
+ if(file.good())  //sprawdzenie czy plik istnieje
+     while(!file.eof())        //petla wykonuje sie az program dojedzie do konca pliku
+     {
+               file>>liczba1 >> liczba2;   // wczyta dwie liczby z pliku (w wierszu) do 2 stringów
+               liczba =  strtol(liczba2.c_str(), &endptr, 2);
+               //^konwersja z systemu czworkowego do dziesietnego, string (C++) trzeba zamienić na char * (C) funkcja .c_str()
+               //zmienna endptr wskazuje na znak w stringu, który nie pasuje do systemu czwórkowego - tu niesprawdzone, bo zakładamy, że dane są poprawne!
+               if(pierwszy) //jeśli to pierwsza liczba z pliku - będzie nowym MINIMUM
+               {
+                            min = liczba;
+                            pierwszy = false;
+               }
+               else //jeśli to kolejna liczba z pliku...
+                  if(liczba < min) //... i jest mniejsza od dotychczasowego minimum...
+                       min = liczba; // ... to nadpisz min
+     }//eof() koniec pliku
+ fileOut<< "28.1: " << min <<endl; //zapisanie najmniejszej liczby z pliku czworkowego do pliku wynikowego
+ file.close();
+}
+void czworkowy
+{
+file.open("dane_systemy2.txt"); //otworz plik liczb
+ fileOut.open("wyjscie.txt"); //otworz plik do wynikow
+if(file.good())  //sprawdzenie czy plik istnieje
+     while(!file.eof())        //petla wykonuje sie az program dojedzie do konca pliku
+     {
+               file>>liczba1 >> liczba2;   // wczyta dwie liczby z pliku (w wierszu) do 2 stringów
+               liczba =  strtol(liczba2.c_str(), &endptr, 4);
+               //^konwersja z systemu czworkowego do dziesietnego, string (C++) trzeba zamienić na char * (C) funkcja .c_str()
+               //zmienna endptr wskazuje na znak w stringu, który nie pasuje do systemu czwórkowego - tu niesprawdzone, bo zakładamy, że dane są poprawne!
+               if(pierwszy) //jeśli to pierwsza liczba z pliku - będzie nowym MINIMUM
+               {
+                            min = liczba;
+                            pierwszy = false;
+               }
+               else //jeśli to kolejna liczba z pliku...
+                  if(liczba < min) //... i jest mniejsza od dotychczasowego minimum...
+                       min = liczba; // ... to nadpisz min
+     }//eof() koniec pliku
+ fileOut<< "28.1: " << min <<endl; //zapisanie najmniejszej liczby z pliku czworkowego do pliku wynikowego
+ file.close();
+}
+void osemkowy
+{
+file.open("dane_systemy3.txt"); //otworz plik liczb
+ fileOut.open("wyjscie.txt"); //otworz plik do wynikow
+if(file.good())  //sprawdzenie czy plik istnieje
+     while(!file.eof())        //petla wykonuje sie az program dojedzie do konca pliku
+     {
+               file>>liczba1 >> liczba2;   // wczyta dwie liczby z pliku (w wierszu) do 2 stringów
+               liczba =  strtol(liczba2.c_str(), &endptr, 8);
+               //^konwersja z systemu czworkowego do dziesietnego, string (C++) trzeba zamienić na char * (C) funkcja .c_str()
+               //zmienna endptr wskazuje na znak w stringu, który nie pasuje do systemu czwórkowego - tu niesprawdzone, bo zakładamy, że dane są poprawne!
+               if(pierwszy) //jeśli to pierwsza liczba z pliku - będzie nowym MINIMUM
+               {
+                            min = liczba;
+                            pierwszy = false;
+               }
+               else //jeśli to kolejna liczba z pliku...
+                  if(liczba < min) //... i jest mniejsza od dotychczasowego minimum...
+                       min = liczba; // ... to nadpisz min
+     }//eof() koniec pliku
+ fileOut<< "28.1: " << min <<endl; //zapisanie najmniejszej liczby z pliku czworkowego do pliku wynikowego
+ fileOut.close;
+}
+
+
+int main(int argc, char** argv)
+{
+int main()
+{
+  //tu otwórz plik do zapisu ofstream plikOut;
+  long min1 = minimumZPliku("dane_systemy1.txt", 2); //z pliku o tej nazwie system dwójkowy odczyta i minimum policzy
+  long min2 = minimumZPliku("dane_systemy2.txt",4);
+  long min3 = minimumZPliku("dane_systemy3.txt",8);//system 4
+  plikOut << "Plik pierwszy min:" << min1 <<"\n";
+  plikOut << "Plik drugi min:" << min2 <<"\n";
+  plikOut << "Plik trzeci min:" << min3 <<"\n";
+  //...itp.
+  //zamknij plikOut na koniec.
+}
+
+ 
+ 
+ return 0;
+}
