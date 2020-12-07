@@ -1,0 +1,57 @@
+#include <iostream>
+#include <string.h>
+#include <stdlib.h>
+#include <fstream>
+#include <stdio.h>
+
+
+using namespace std;
+
+long MinimumZPliku(string NazwaPliku, int system)
+{
+ifstream file;
+char* endptr;
+string Liczba1, Liczba2;
+long Liczba, min;
+file.open(NazwaPliku);
+bool pierwszy = true;
+
+if(file.good())
+while(!file.eof())
+
+	{
+		file>>Liczba1 >> Liczba2;
+		Liczba = strtol(Liczba2.c_str(), &endptr, system);
+		
+		if(pierwszy)	
+			{
+				min = Liczba;
+				pierwszy = false;
+			}
+		else
+		if(Liczba < min)
+		min = Liczba;
+	}
+
+file.close();
+return min;
+}
+
+int main(int argc, char** argv) 
+{
+	ofstream fileOut;
+	fileOut.open("Wyniki.txt");
+
+	fileOut<<"Pierwszy plik min:"<<min1 <<"\n";
+	fileOut<<"Drugi plik min:"<<min2 <<"\n";
+	fileOut<<"Trzeci plik min:"<<min3<<"\n";
+
+	long min1 = MinimumZPliku("dane_systemy1.txt", 2);
+	long min2 = MinimumZPliku("dane_systemy2.txt",4);
+	long min3 = MinimumZPliku("dane_systemy3.txt",8);
+
+
+	
+  fileOut.close();
+return 0;
+}
