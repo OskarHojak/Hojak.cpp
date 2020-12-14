@@ -1,0 +1,38 @@
+#include <iostream>
+#include <string.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <fstream>
+
+using namespace std;
+
+long zamiana(string nazwaPliku)
+{
+    ifstream plik;
+    ofstream plik1;
+    
+    string Liczba1, Liczba;
+    char* endptr;
+    int system;
+    
+    plik.open("a.txt");
+    plik1.open("b.txt");
+    
+    if(plik.good())
+    while(!plik.eof())
+    {
+        plik>>system >> Liczba1;
+        Liczba = strtol(liczba1.c_str(), &endptr, system);
+        cout<<Liczba<<endl;
+        plik1<<Liczba<<endl;
+    }
+    plik.close();
+    plik1.close();
+    return 0;
+}
+
+int main(int argc, char** argv) 
+{
+    zamiana("a.txt");
+return 0;
+}
