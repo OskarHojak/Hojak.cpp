@@ -1,0 +1,37 @@
+#include <fstream>
+#include <iostream>
+
+
+using namespace std;
+
+bool pierwsza(int l)
+
+{
+ for (int i=2; i<l/2; i++)
+     if (l %i == 0) 
+    {
+           return false;
+     }
+           return true;
+}
+      int main(int argc, char** argv) {   
+          ifstream file;
+           file.open("A.txt");
+          ofstream file2;
+          file2.open("B.txt");
+         int l;
+    
+    while(!file.eof()){
+    file>>l;
+    
+    if(Pierwsza(l)) 
+        cout<<l<<"Pierwsza liczba"<<endl;
+    else
+        cout<<l<<"Złożona liczba"<<endl;
+
+
+
+
+    }
+    return 0;
+}
