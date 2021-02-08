@@ -1,0 +1,40 @@
+#include <fstream>
+#include <iostream>
+
+using namespace std;
+
+int main() {
+   
+    int i;
+    int Liczba;
+    int Maximum = 0;
+    int Minimum = 999999;
+    
+
+    ifstream plik;
+    plik.open("Liczby1.txt");
+
+
+     for(i=0; i<1000; i++) {
+     plik >> oct >> liczba;
+     if (Minimum > Liczba) 
+      
+      
+       {
+         Minimum = Liczba;
+        }                
+       if (Maximum < Liczba) 
+     
+     
+       {
+            Maximum = Liczba;
+        }
+    }
+    plik.close();
+
+    cout << "Zadanie 1:\n";
+    cout << "Najmniejsza z liczb to" << dec << Minimum << " Dziesietnie czyli " << oct << Minimum << " osemkowo\n";
+    cout << "Najwieksza z liczb to" << dec << Maximum << " Dziesietnie czyli " << oct << Maximum << " osemkowo\n\n";
+
+    return 0;
+}
