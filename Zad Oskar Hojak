@@ -1,0 +1,71 @@
+#include <fstream>
+#include <iostream>
+
+
+using namespace std;
+
+
+
+	public:
+		string S;
+		string S1;
+		string S2;
+    
+		ifstream file;
+ 		ofstream fileOut;
+		strings();
+		~strings();
+		
+		void wypisz();
+		
+	private:
+		void Dwucykliczny(string s);
+		void DwieJedynki(string s);
+		
+
+
+strings::strings() {
+	file.open("Ciagi.txt");
+ 	fileOut.open("Wyjscie.txt");
+}
+
+void strings::Dwucykliczny(string s) {
+	        
+	    S1 = s.substr(0, s.length() / 2);
+	    S2 = s.substr(s.length() / 2, s.length());
+	        
+	    if (S1 == S2) {
+     fileOut<<"Dwucykliczny: "<<s<<endl;
+		}
+}
+
+void strings::DwieJedynki(string s) {  
+		for (int i=0; i<s.length()-1; i++) {
+		if (s[i]=='1' && s[i+1]=='1') {
+		fileOut<<"DwieJedynki: "<<s<<endl;
+		break;
+			};
+		}
+
+}
+
+void strings::wypisz() {
+while(!file.eof()){
+file>>s;
+		
+this->DwieJedynki(s);
+this->Dwucykliczny(s);
+	}
+
+strings::~strings() {
+file.open("Ciagi.txt");
+ 	fileOut.open("Wyjscie.txt");
+}
+
+
+
+int main(int argc, char** argv) {
+	strings ciag;
+	ciag.wypisz();
+	return 0;
+}
