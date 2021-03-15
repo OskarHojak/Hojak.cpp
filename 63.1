@@ -1,0 +1,49 @@
+#include <fstream>
+#include <iostream>
+
+using namespace std;
+
+class licz{
+int t[1000];
+int dlugosc;
+
+ifstream PL1;
+ofstream PL2;
+
+public:
+void liczy();
+private:
+void third_power();
+};
+void licz::liczy(){
+
+PL1.open("Zle.txt");
+PL2.open("Wy.txt");
+while(pl1.good()){
+pl1 >> dlugosc;
+for(int i=0;i<dlugosc;i++){
+PL1 >> t[i];
+Pl2<< t[i]<<", ";
+}Pl2<<endl;
+third_power();
+} PL1.close();
+Pl2.close();
+}    
+
+void licz::third_power(){  
+int x;
+for(int i=0;i<dlugosc-1;i++){
+if(i==0)
+
+x = t[i+1] - t[i];
+if(t[i+2]-t[i+1]!=x){
+PL2<<"zle: "<<t[i+2]<<endl;
+    }
+}
+PL2<<endl;
+}
+int main(int argc, char** argv) {
+    licz ii;
+    ii.liczy();
+    return 0;
+}
