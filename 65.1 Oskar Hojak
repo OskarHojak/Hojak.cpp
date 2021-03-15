@@ -1,0 +1,47 @@
+#include <iostream>
+#include <vector>
+#include <fstream>
+
+using namespace std;
+
+class Ulamki{
+ifstream Plik1;
+int Liczba, Licznik, Mianownik;
+
+double Wynik;
+int Wynik1 = 1000;
+int minMian =1000;
+vector <int> Liczby1;
+
+public:
+    void Znajdz();  
+};
+void Ulamki::Znajdz(){     
+Plik1.open("dane_ulamki.txt");
+while(!Plik1.eof()){
+Plik1>>Liczba;
+Liczby1.push_back(liczba);    
+} 
+
+for(int i=0;i<Liczby1.size();i++){         
+Wynik=Liczby1[i]/Liczby1[i+1];
+
+if(Wynik<Wynik1){
+Wynik=Wynik1;
+Liczby1[i+1]=Mianownik;
+
+if(Mianownik<minMian){
+Mianownik=minMian;
+Liczby1[i]=Licznik;
+}
+}   
+i++;
+}
+
+cout<<"Para Liczb To: "<< Licznik<<" i "<<minMian;
+}
+int main(int argc, char** argv) {
+    Ulamki u;
+    u.Znajdz();
+    return 0;
+}
