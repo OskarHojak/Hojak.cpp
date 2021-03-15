@@ -1,0 +1,55 @@
+#include <iostream>
+#include <string>
+#include <fstream>
+
+using namespace std;
+
+class Plik
+{
+    ifstream Plik1;
+    public:
+    virtual ~Plik()
+    { }
+    Plik();
+    ~Plik();
+    virtual void loop() = 0;
+};
+
+Plik::Plik()
+{
+    Plik1.open("ciagi.txt"); 
+}
+Plik::~Plik()
+{
+    Plik1.close();
+}
+
+
+class Zrob
+: public Plik
+{
+public:
+virtual void loop()
+{
+int liczba;
+
+string S;
+
+while(!plik1.eof()){
+Plik1>>liczba;
+s = to_string(liczba);
+string S1 = s.substr(0, s.length() / 2);
+string S2 = s.substr(s.length() / 2);
+if(S1==S2){
+cout<<liczba<<endl;
+   	 }
+    	}
+   			 }
+};
+
+int main()
+{
+Plik * ww = new Zrob;
+ww->loop();
+delete ww;
+}
