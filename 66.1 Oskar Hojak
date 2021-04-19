@@ -1,0 +1,43 @@
+#include <iostream>
+#include <fstream>
+#include <string>
+
+using namespace std;
+
+int main(int argc, char** argv) {
+
+ifstream Plik1;
+   
+int a,b,c;
+Plik1.open("trojki.txt");
+while(!Plik1.eof()){
+
+Plik1>>a;
+Plik1>>b;
+Plik1>>c;  
+
+int Kolejna_Cyfra;
+int Kolejna_Cyfra2;
+    
+int a2=a;
+int b2=b;
+int suma = 0;
+while(a>0)
+{
+Kolejna_Cyfra=a % 10;
+suma+=Kolejna_Cyfra;
+a/=10;
+}
+int suma2;
+while(b>0)
+{
+Kolejna_Cyfra2=b % 10;
+suma2+=Kolejna_Cyfra2;
+b/=10;
+}
+if(suma+suma2 == c){
+cout<<a2<<", "<<b2<<", "<<c<<endl;
+    }
+}
+return 0;
+}
