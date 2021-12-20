@@ -1,0 +1,43 @@
+#include <fstream>
+#include <iostream>
+
+using namespace std;
+
+
+
+string szyfr(string o, int klucz1[], int kluczLen) 
+{
+ 
+	char temp;
+	int klucz = 0;
+  
+ 	 for (int i = 0; i < o.length(); i++) 
+ 	 {
+ 	  	 temp = o[i];
+ 	  	 o[i] = o[klucz1[klucz] - 1];
+ 	  	 o[klucz1[klucz] - 1] = temp;
+ 	  	 klucz++;
+  	 	 if (klucz == kluczLen) klucz = 0;
+ 	 }
+ 	 
+  return o;
+}
+
+void z1() {
+  
+  cout << "Zadanie 76.1:" << endl;
+  ifstream in("szyfr1.txt");
+  
+  string tab[6];
+  int key[50];
+  for (int i = 0; i < 6; i++) in >> tab[i];
+  for (int i = 0; i < 50; i++) in >> key[i];
+  
+  for (int i = 0; i < 6; i++) 
+  cout << szyfr(tab[i], key, 50) << endl;
+  cout << endl;
+}
+int main() {
+  z1();
+
+}
