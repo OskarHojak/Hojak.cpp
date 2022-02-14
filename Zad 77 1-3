@@ -1,0 +1,37 @@
+#include <iostream>
+#include <fstream>
+using namespace std;
+string szyfruj(string s, string key) {
+    string result;
+    int keyIndex = 0;
+    int move;
+    int index;
+    int counter = 0;
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] < 'A' || s[i] > 'Z') {
+            return result += s[i];
+        }
+        move = (int)key[keyIndex] - 65;
+        index = (int)s[i] - 65;
+        index += move;
+        if (index > 25) index = (index - 1) % 25;
+        index += 65;
+        result += (char)index;
+
+        keyIndex++;
+        if (keyIndex == key.length()) keyIndex = 0;
+    }
+    return result;
+}
+
+int main()
+{
+    ifstream in("dokad.txt");
+    string s = "";
+    string temp;
+    while (in >> temp) s += temp + " ";
+    string key = "LUBIMYCZYTAC";
+    cout << "77.1" << endl;
+    cout << "a) " << 19 << endl;
+    cout << "b) " << szyfruj(s, key) << endl << endl;
+}
